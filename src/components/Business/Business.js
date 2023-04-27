@@ -1,4 +1,5 @@
 import React from "react";
+import BusinessList from "../BusinessList/BusinessList";
 import './BusinessStyles.css';
 
 // The component will represent how a business (a restaurant) in Ravenous will be formatted and styled.
@@ -6,37 +7,26 @@ import './BusinessStyles.css';
 // Each Business component should display an image, name, address, city, state, zipcode, category, rating, 
 // and review count.
 
-// temporary hard coded business
-const pizzaBusiness = {
-    imageSrc: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-    name: 'MarginOtto Pizzeria',
-    address: '1010 Paddington Way',
-    city: 'Flavortown',
-    state: 'NY',
-    zipCode: '10101',
-    category: 'Italian',
-    rating: 4.5,
-    reviewCount: 90
-};
-
 class Business extends React.Component {
     render() {
+
+        const { business } = this.props;
         return (
             <div className="Business">
                 <div className="image-container">
-                    <img src={ pizzaBusiness.imageSrc } alt="" />
+                    <img src={ business.imageSrc } alt="" />
                 </div>
-                <h2>{ pizzaBusiness.name }</h2>
+                <h2>{ business.name }</h2>
                 <div className="Business-information">
                     <div className="Business-address">
-                        <p>{ pizzaBusiness.address }</p>
-                        <p>{ pizzaBusiness.city }</p>
-                        <p>{pizzaBusiness.state} { pizzaBusiness.zipCode }</p>
+                        <p>{ business.address }</p>
+                        <p>{ business.city }</p>
+                        <p>{business.state} { business.zipCode }</p>
                     </div>
                     <div className="Business-reviews">
-                        <h3>{ pizzaBusiness.category }</h3>
-                        <p id="rat">{ pizzaBusiness.rating } stars</p>
-                        <p>{ pizzaBusiness.reviewCount } reviews</p>
+                        <h3>{ business.category }</h3>
+                        <p id="rat">{ business.rating } stars</p>
+                        <p>{ business.reviewCount } reviews</p>
                     </div>
                 </div>
             </div>
