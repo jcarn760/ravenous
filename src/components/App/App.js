@@ -17,6 +17,7 @@ const pizzaBusiness = {
   reviewCount: 90
 };
 
+// Array of business to pass to through BusinessList
 const BusArray = [pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness];
 
 class App extends React.Component {
