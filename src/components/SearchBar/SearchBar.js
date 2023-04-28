@@ -1,45 +1,90 @@
 import React from "react";
-import './SearchBarStyles.css';
-
-
-// searchbar component to search for businesses on the Yelp platform.
-
-const sortByOptions = {
-    'Best Match': 'best_match',
-    'Highest Rate': 'rating',
-    'Most Reviewed': 'review_count'
-};
+import "./SearchBarStyles.css";
 
 
 class SearchBar extends React.Component {
-    renderSortByOption() {
-        return Object.keys(sortByOptions).map(sortByOptions => {
-            let sortByOptionValue = sortByOptions[sortByOptions];
-            return <li key={{sortByOptionValue}}>{sortByOptions}</li>;
-        });
+    // constructor to set state of the search
+    constructor(props) {
+        super(props);
+        this.state = {
+            busName: '',
+            location: '',
+            sortBy: 'best_match'
+        };
+
+        // parent handlers to bind changes
+
+        this.handleBusNameChange = this.handleBusNameChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+
+        // list of sort options and key value pairs
+        this.sortByOptions = {
+            "Best Match": "best_match",
+            "Highest Rated": "rating",
+            "Most Reviewed": "review_count",
+        };
     }
 
+    // sets active state on the li selected for visual feedback
+    getSortByClass (sortByOption) {
+        if (this.state.sortBy === sortByOption) {
+        return 'active';
+        } else {
+        return '';
+        }
+    }
+
+    // handle methods to handle each search by change of any category
+
+    handleSortByChange(sortByOption) {
+        this.setState({ sortBy: sortByOption });
+    }
+
+    handleBusNameChange(event) {
+        this.setState({ busName: event.target.value });
+    }
+
+    handleLocationChange(event) {
+        this.setState({ location: event.target.value });
+    }
+
+    handleSearch(event) {
+        this.props.searchYelp(this.state.busName, this.state.location, this.state.sortBy);
+        event.preventDefault();
+    }
+
+    // react mapping method to take the sortByOptions list of key value pairs and map li items 
+    // and adding appropriate props
+    renderSortByOptions = () => {
+        return Object.keys(this.sortByOptions).map((sortByOption) => {
+        let sortByOptionValue = this.sortByOptions[sortByOption];
+        return <li className={this.getSortByClass(sortByOptionValue)}
+            key={sortByOptionValue}
+            onClick={this.handleSortByChange.bind(this, sortByOptionValue)}>
+            {sortByOption}</li>;
+        });
+    }
     render() {
         return (
             <div className="SearchBar">
                 {/* sorting options */}
                 <div className="SearchBar-sort-options">
-                    <ul>
-                        {this.renderSortByOption()}
-                    </ul>
+                    <ul>{this.renderSortByOptions()}</ul>
                 </div>
-                {/* search bars for business name and location */}
+                {/* search bar inputs fir business name and location */}
                 <div className="SearchBar-fields">
-                    <input type="text" placeholder="Search Businesses" />
-                    <input type="text" placeholder="Where?" />
+                    <input placeholder="Search Businesses" onChange={this.handleBusNameChange} />
+                    <input placeholder="Where?" onChange={this.handleLocationChange} />
                 </div>
-                {/* search/submit button  */}
+                {/* search/submit button */}
                 <div className="SearchBar-submit">
-                    <button type="submit">Let's Go</button>
+                    <button type="button" onClick={this.handleSearch}>Let's Go</button>
                 </div>
             </div>
         );
     }
+
 }
 
 export default SearchBar;

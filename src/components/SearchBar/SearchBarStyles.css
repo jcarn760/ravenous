@@ -36,6 +36,10 @@
   text-indent: 15px;
 }
 
+.SearchBar-fields input:focus {
+  outline: none;
+}
+
 .SearchBar-submit button {
   cursor: pointer;
   padding: 15px 35px;

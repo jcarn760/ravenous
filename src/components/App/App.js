@@ -21,12 +21,15 @@ const pizzaBusiness = {
 const BusArray = [pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness, pizzaBusiness];
 
 class App extends React.Component {
-
+  //simulated search functionality to set up proper prop passing
+  searchYelp(busName, location, sortBy) {
+    console.log(`Search Yelp with ${busName}, ${location}, ${sortBy}.`);
+  }
   render() {
     return (
       <div className='App'>
         <h1>ravenous</h1>
-        <SearchBar />
+        <SearchBar searchYelp={this.searchYelp} />
         <BusinessList list={BusArray} />
       </div>
     );
