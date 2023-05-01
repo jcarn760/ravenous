@@ -4,6 +4,7 @@
     justify-content: space-between;
     width: 16.66rem;
     margin: 0 .5rem 2.3rem .5rem;
+    overflow-wrap: break-word;
   }
   
   .Business .image-container {
@@ -36,6 +37,10 @@
   
   .Business-address {
     text-align: left;
+  }
+
+  .Business-address a {
+    text-decoration: none;
   }
   
   .Business-reviews {

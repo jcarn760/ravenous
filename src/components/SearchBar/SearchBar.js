@@ -39,6 +39,7 @@ class SearchBar extends React.Component {
 
     handleSortByChange(sortByOption) {
         this.setState({ sortBy: sortByOption });
+        this.props.searchYelp(this.state.busName, this.state.location, this.state.sortBy);
     }
 
     handleBusNameChange(event) {
@@ -65,9 +66,10 @@ class SearchBar extends React.Component {
             {sortByOption}</li>;
         });
     }
+
     render() {
         return (
-            <div className="SearchBar">
+            <form className="SearchBar">
                 {/* sorting options */}
                 <div className="SearchBar-sort-options">
                     <ul>{this.renderSortByOptions()}</ul>
@@ -79,9 +81,9 @@ class SearchBar extends React.Component {
                 </div>
                 {/* search/submit button */}
                 <div className="SearchBar-submit">
-                    <button type="button" onClick={this.handleSearch}>Let's Go</button>
+                    <button type="submit" onClick={this.handleSearch}>Let's Go</button>
                 </div>
-            </div>
+            </form>
         );
     }
 
