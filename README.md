@@ -3,7 +3,13 @@
 This is a front end react Yelp clone project
 
 
+# IMPORTANT
 
+due to CORS restrictions. it's important to bypass this restriction by clicking on the following link before attempting to test program and clicking 'Request temporary access to the demo server':
+
+https://cors-anywhere.herokuapp.com/corsdemo
+
+CORS Anywhere will take requests sent to its API endpoint, make them for the requesting app with the proper CORS permissions, and then return the response back to the requesting app.
 
 
 # Getting Started with Create React App
