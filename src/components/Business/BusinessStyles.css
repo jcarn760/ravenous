@@ -17,7 +17,9 @@
   }
 
   .Business .image-container img:hover {
-    rotate: 9%;
+    height: 105%;
+    width: 105%;
+    transition: 0.3s;
   }
   
   .Business h2 {
