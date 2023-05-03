@@ -11,6 +11,15 @@ https://cors-anywhere.herokuapp.com/corsdemo
 
 CORS Anywhere will take requests sent to its API endpoint, make them for the requesting app with the proper CORS permissions, and then return the response back to the requesting app.
 
+### Screeshot displaying the application 
+
+results use keywords, location, and sorting options and access Yelp API to display results. Images can be clicked to google search the business, and addresses can be clicked to google maps the location of the business. 
+
+
+![Screenshot 2023-05-01 at 1 56 22 PM](https://user-images.githubusercontent.com/53236828/235678915-80035d5f-0274-4e18-80ff-2f1957821fb3.png)
+
+
+
 
 # Getting Started with Create React App
 
