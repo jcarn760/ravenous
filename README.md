@@ -11,6 +11,10 @@ https://cors-anywhere.herokuapp.com/corsdemo
 
 CORS Anywhere will take requests sent to its API endpoint, make them for the requesting app with the proper CORS permissions, and then return the response back to the requesting app.
 
+Then you can properly run the application
+
+https://jcarn760.github.io/ravenous/
+
 ### Screeshot displaying the application 
 
 results use keywords, location, and sorting options and access Yelp API to display results. Images can be clicked to google search the business, and addresses can be clicked to google maps the location of the business. 
